@@ -1,0 +1,10 @@
+#This is the "builder" stage
+FROM golang:1.16 as builder
+WORKDIR /my-go-app
+COPY src .
+RUN GOOS=linux GOARCH=amd64 go build .
+
+#This is the final stage, and we copy artifacts from "builder"
+FROM alpine
+COPY --from=builder /my-go-app/example_app /bin/example_app
+ENTRYPOINT ["/bin/example_app"]

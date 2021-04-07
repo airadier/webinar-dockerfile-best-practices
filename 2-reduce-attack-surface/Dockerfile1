@@ -1,0 +1,6 @@
+FROM alpine
+RUN apk add go
+COPY ./src/ /src
+WORKDIR /src
+RUN go build .
+ENTRYPOINT /src/example_app
