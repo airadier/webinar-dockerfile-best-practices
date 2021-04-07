@@ -1,0 +1,4 @@
+FROM alpine
+ENV SECURE_API_TOKEN=ajhda8-12312-29889234-foo
+COPY aws_credentials /home/app/.aws/credentials
+RUN rm /home/app/.aws/credentials
