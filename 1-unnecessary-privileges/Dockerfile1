@@ -1,0 +1,3 @@
+FROM alpine
+COPY ./src/example_app /example_app
+ENTRYPOINT /example_app
