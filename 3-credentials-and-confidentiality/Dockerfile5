@@ -1,9 +1,9 @@
 FROM ubuntu
-COPY source/* .
 RUN apt-get update && \
     apt-get install -y wget nodejs && \
     wget https://bit.ly/3urGNtE -O downloadedfile.tgz && \
     tar xvzf downloadedfile.tgz && \
     rm downloadedfile.tgz && \
     apt-get -y remove wget
+COPY source/* .
 ENTRYPOINT ["/usr/bin/node", "/main.js"]

@@ -1,1 +1,9 @@
-TO-DO: layer optimization - before
+FROM ubuntu
+COPY source/* .
+RUN apt-get update
+RUN apt-get install -y wget nodejs
+RUN wget https://bit.ly/3urGNtE -O downloadedfile.tgz
+RUN tar xvzf downloadedfile.tgz
+RUN rm downloadedfile.tgz
+RUN apt-get -y remove wget
+ENTRYPOINT ["/usr/bin/node", "/main.js"]
